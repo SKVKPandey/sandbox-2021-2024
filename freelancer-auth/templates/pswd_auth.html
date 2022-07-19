@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--===============================================================================================-->	
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<!--===============================================================================================-->
+  <link rel="icon" type="image/png" href="{{ url_for('static',filename='images/icons/login.ico') }}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='fonts/Linearicons-Free-v1.0.0/icon-font.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/animate/animate.css') }}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/css-hamburgers/hamburgers.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/animsition/css/animsition.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/select2/select2.min.css') }}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/daterangepicker/daterangepicker.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/util.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/main.css') }}">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/pswd_auth.css') }}">
+<!--===============================================================================================-->
+</head>
+
+<body onload="insChar()">
+
+  <div class="limiter">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="padding: 1%">
+    
+      <div class="collapse navbar-collapse" id="navbarColor01">
+				<ul class="navbar-nav mr-auto">
+				  <li class="nav-item active">
+					<a class="nav-link" href="#">Home</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link" href="#">Features</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link" href="{{url_for('login')}}">Login</a>
+				  </li>
+				  <li class="nav-item">
+					  <a class="nav-link" href="{{url_for('register')}}">Register</a>
+					</li>
+				  <li class="nav-item">
+					<a class="nav-link" href="#">About</a>
+				  </li>
+				</ul>
+			</div>
+
+    </nav>
+
+    <div class="container-login100" style="background-image: url('{{ url_for('static',filename='images/bg-01.jpg') }}');">
+      <div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
+
+        <form method = "post" action="/pswd_verification"><div style="padding: 2%;">
+
+          <center><div class="p-t-31 p-b-9">
+            <span class="txt1">
+              Email
+            </span>
+          </div></center>
+  
+          <div class="wrap-input100 validate-input" data-validate = "Email is required">
+            <input class="input100" type="text" id="email" name="email" value="{{data[0]}}">
+            <span class="focus-input100"></span>
+          </div>
+
+          <p id="colorNum" style="font-size: 0px;">{{data[1]}}</p>
+
+          <center  style="padding: 1%;">
+
+          <div>
+              <div class="container">
+                <div class="A1" id="A1">0</div>
+                <div class="A2" id="A2">3</div>
+                <div class="A3" id="A3">6</div>
+                <div class="A4" id="A4">9</div>
+                <div class="A5" id="A5">c</div>
+                <div class="A6" id="A6">f</div>
+                <div class="A7" id="A7">i</div>
+                <div class="A8" id="A8">l</div>
+                <div class="A9" id="A9">o</div>
+                <div class="A10"  id="A10">r</div>
+                <div class="A11"  id="A11">u</div>
+                <div class="A12"  id="A12">x</div>
+              </div>
+              <div class="container2">
+                <div class="B1" id="B1">0</div>
+                <div class="B2" id="B2">3</div>
+                <div class="B3" id="B3">6</div>
+                <div class="B4" id="B4">9</div>
+                <div class="B5" id="B5">c</div>
+                <div class="B6" id="B6">f</div>
+                <div class="B7" id="B7">i</div>
+                <div class="B8" id="B8">l</div>
+                <div class="B9" id="B9">o</div>
+                <div class="B10"  id="B10">r</div>
+                <div class="B11"  id="B11">u</div>
+                <div class="B12"  id="B12">x</div>
+              </div> 
+              <div class="container3">
+                <div class="C1" id="C1">0</div>
+                <div class="C2" id="C2">3</div>
+                <div class="C3" id="C3">6</div>
+                <div class="C4" id="C4">9</div>
+                <div class="C5" id="C5">c</div>
+                <div class="C6" id="C6">f</div>
+                <div class="C7" id="C7">i</div>
+                <div class="C8" id="C8">l</div>
+                <div class="C9" id="C9">o</div>
+                <div class="C10"  id="C10">r</div>
+                <div class="C11"  id="C11">u</div>
+                <div class="C12"  id="C12">x</div>
+              </div> 
+            </div>
+              <div class="overlap">
+                <img src = "{{url_for('static', filename='images/Color_Wheel.png')}}" style="width: 100%" id="colorWheel">
+                <br>
+                <img src = "{{url_for('static', filename='images/Anti-Clockwise.png')}}" class="myimg" style="width: 15%" onclick="antiClockwise()"> 
+                &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; 
+                &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; 
+                &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; 
+                &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp;
+                <img src = "{{url_for('static', filename='images/Clockwise.png')}}" class="myimg" style="width: 15%" onclick="Clockwise()">
+                <hr style="width: 80%">
+              </div>
+          
+          <div class="overlap">
+
+            <center>
+              <div class="container-login100-form-btn m-t-17">
+                <button style="width: 30%;" class="login100-form-btn" type="button" onclick="OuterOrb()">Outer Orbit</button>&nbsp;
+                <button style="width: 35%;" class="login100-form-btn" type="button" onclick="MiddleOrb()">Middle Orbit</button>&nbsp;
+                <button style="width: 30%;" class="login100-form-btn" type="button" onclick="InnerOrb()">Inner Orbit</button>
+              </div>
+            </center>
+
+            <div>
+
+              <div class="p-t-31 p-b-9">
+                <span class="txt1">
+                   Password
+                </span>
+              </div>
+    
+              <div >
+                <input id="pswd" name="pswd" >
+                
+              </div>
+
+              <div class="container-login100-form-btn m-t-17">
+                <button class="login100-form-btn" type="submit">
+                  Submit
+                </button>
+              </div>
+
+            </div>
+          </div>
+
+      </div></form>
+    </div>
+			
+		</div>
+	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+	
+<!--===============================================================================================-->
+	<script src="{{ url_for('static',filename='vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static',filename='vendor/animsition/js/animsition.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static',filename='vendor/bootstrap/js/popper.js') }}"></script>
+	<script src="{{ url_for('static',filename='vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static',filename='vendor/select2/select2.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static',filename='vendor/daterangepicker/moment.min.js') }}"></script>
+	<script src="{{ url_for('static',filename='vendor/daterangepicker/daterangepicker.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static',filename='vendor/countdowntime/countdowntime.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static',filename='js/main.js') }}"></script>
+<!--===============================================================================================-->
+  <script>
+
+    var colorScheme = ['black', 'orange', 'yellow', 'pink', 'blue', 'purple', 'gray', 'brown', 'cyan', 'green', 'red', 'violet'];
+    var colorCount = colorScheme.indexOf(document.getElementById('colorNum').innerHTML);
+
+    function antiClockwise() {
+      if (colorCount<1) {
+        colorCount = 11;
+      }
+      else {
+        colorCount--;
+      }
+      document.getElementById("colorWheel").style.transform = document.getElementById("colorWheel").style.transform + 'rotate(-30deg)';
+    }
+    function Clockwise() {
+      if (colorCount>10) {
+        colorCount = 0;
+      }
+      else {
+        colorCount++;
+      }  
+      document.getElementById("colorWheel").style.transform = document.getElementById("colorWheel").style.transform + 'rotate(30deg)';
+    }
+
+    function OuterOrb() {
+      var string = 'A' + (colorCount + 1)
+      console.log(document.getElementById(string).innerHTML);
+      document.getElementById("pswd").value += document.getElementById(string).innerHTML;
+    }
+
+    function MiddleOrb() {
+      var string = 'B' + (colorCount + 1)
+      console.log(document.getElementById(string).innerHTML);
+      document.getElementById("pswd").value += document.getElementById(string).innerHTML;
+    }
+
+    function InnerOrb() {
+      var string = 'C' + (colorCount + 1)
+      console.log(document.getElementById(string).innerHTML);
+      document.getElementById("pswd").value += document.getElementById(string).innerHTML;
+    }
+
+    function remove(arr, char) {
+
+      const index = arr.indexOf(char);
+
+      if (index > -1) {
+        arr.splice(index, 1); 
+      }
+
+      return arr;
+
+    }
+
+    var charList = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','0','1','2','3','4','5','6','7','8','9'];
+    var arrLen = charList.length;
+    var randChar = [];
+
+    
+    for (let i = 0; i < arrLen; i++) {
+      myChar = charList[Math.floor((Math.random()*charList.length))]
+      randChar.push(myChar)
+      charList = remove(charList, myChar)
+    }
+
+    var capList = ['A', 'B', 'C'];
+    var count = 0;
+
+    function insChar() {
+      for (var i = 0; i < 3; i++){
+        for (var j = 1; j < 13; j++){
+          document.getElementById(capList[i].concat(j.toString())).innerHTML = randChar[count];
+          count++;
+        }
+      }
+    }
+
+  </script>
+
+</body>
+</html>
+
+    
+

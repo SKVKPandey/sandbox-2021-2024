@@ -1,0 +1,54 @@
+h1 {
+    padding: 15px;
+    border-spacing: 15px;
+    background-color: blue;
+}
+
+.grid-container {
+    display: grid;
+    row-gap: 40px;
+    padding: 15px;
+    border-spacing: 15px;
+    background-color: gray;
+}
+
+.grid-heading-spam {
+    padding: 15px;
+    border-spacing: 15px;
+    grid-column-start: 1;
+    grid-column-end: 5;
+    font-size: 24px;
+    text-align: center;
+    background-color: red;
+    height: 40px;
+}
+
+.grid-heading-inbox {
+    padding: 15px;
+    border-spacing: 15px;
+    grid-column-start: 5;
+    grid-column-end: 9;
+    font-size: 24px;
+    text-align: center;
+    background-color: green;
+    height: 40px;
+}
+
+.grid-item {
+    text-align: left;
+    font-size: 18px;
+}
+
+.grid-button-start {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    font-size: 24px;
+    height: 40px;
+}
+
+.grid-button-stop {
+    grid-column-start: 5;
+    grid-column-end: 9;
+    font-size: 24px;
+    height: 40px;
+}

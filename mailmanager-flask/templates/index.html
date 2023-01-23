@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
+    <title>MailManager</title>
+</head>
+<body>
+    
+    <h1>IMAP Mode</h1>
+    <form action="/" method="post" class="grid-container">
+            <div class="grid-heading-spam">
+                <label for="spam"> Spam Messages </label> &nbsp; <input type="radio" id="spam" name="move_msg" value="Spam">
+            </div>
+            <div class="grid-heading-inbox">
+                <label for="inbox"> Inbox Messages </label> &nbsp; <input type="radio" id="inbox" name="move_msg" value="Inbox">
+            </div>
+            <div class="grid-item">
+                <label for="no-action1">No Action</label> &nbsp; <input type="checkbox" id="no-action1" name="optA1" value="No-action1">
+            </div>
+            <div class="grid-item">
+                <label for="add-flag1">Add Flg</label> &nbsp; <input type="checkbox" id="add-flag1" name="optA2" value="Add-flag1">
+            </div>
+            <div class="grid-item">
+                <label for="add-to-contacts1">Add to Contacts</label> &nbsp; <input type="checkbox" id="add-to-contacts1" name="optA3" value="Add-to-contacts1">
+            </div>
+            <div class="grid-item">
+                <label for="reply1">Reply</label> &nbsp; <input type="checkbox" id="reply1" name="optA4" value="Reply1">
+            </div>
+            <div class="grid-item">
+                <label for="no-action2">No Action</label> &nbsp; <input type="checkbox" id="no-action2" name="optB1" value="No-action2">
+            </div>
+            <div class="grid-item">
+                <label for="add-flag2">Add Flg</label> &nbsp; <input type="checkbox" id="add-flag2" name="optB2" value="Add-flag2">
+            </div>
+            <div class="grid-item">
+                <label for="add-to-contacts2">Add to Contacts</label> &nbsp; <input type="checkbox" id="add-to-contacts2" name="optB3" value="Add-to-contacts2">
+            </div>
+            <div class="grid-item">
+                <label for="reply2">Reply</label> &nbsp; <input type="checkbox" id="reply2" name="optB4" value="Reply2">
+            </div>
+            <div class="grid-item">
+                <label for="forward1">Forward</label> &nbsp; <input type="checkbox" id="forward1" name="optA5" value="Forward1">
+            </div>                
+            <div class="grid-item">
+                <label for="click-link1">Click Link</label> &nbsp; <input type="checkbox" id="click-link1" name="optA6" value="Click-link1">
+            </div>
+            <div class="grid-item">
+                <label for="mark-read">Mark Read</label> &nbsp; <input type="checkbox" id="mark-read" name="optA7" value="Mark-read">
+            </div>
+            <div class="grid-item">
+                <label for="catagorize1">Catagorize</label> &nbsp; <input type="checkbox" id="catagorize1" name="optA8" value="Catagorize1">
+            </div>
+            <div class="grid-item">
+                <label for="forward2">Forward</label> &nbsp; <input type="checkbox" id="forward2" name="optB5" value="Forward2">
+            </div>
+            <div class="grid-item">
+                <label for="click-link2">Click Link</label> &nbsp; <input type="checkbox" id="click-link2" name="optB6" value="Click-link2">
+            </div>
+            <div class="grid-item">
+                <label for="active">Active</label> &nbsp; <input type="checkbox" id="active" name="optB7" value="Active">
+            </div>
+            <div class="grid-item">
+                <label for="pin">Pin</label> &nbsp; <input type="checkbox" id="pin" name="optB8" value="Pin">
+                <br><br>
+                <label for="catagorize2">Catagorize</label> &nbsp; <input type="checkbox" id="catagorize2" name="optB9" value="Catagorize2">
+            </div>
+        </div>
+        <div class="grid-container">
+            <input type="button" class="grid-button-start" id="start" value="Start">
+            <input type="button" class="grid-button-stop" id="stop" value="Stop">
+    </form>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CSS Code Extractor</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    main {
+      padding: 20px;
+    }
+    
+    #input-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    
+    #input-section input[type="text"] {
+      width: 300px;
+      padding: 10px;
+      font-size: 16px;
+    }
+    
+    #output-section {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    #output-section textarea {
+      width: 100%;
+      height: 400px;
+      resize: vertical;
+      border: 1px solid #ccc;
+      padding: 10px;
+      font-size: 16px;
+    }
+    
+    #extract-button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>CSS Code Extractor</h1>
+  </header>
+  
+  <main>
+    <div id="input-section">
+      <input type="text" id="website-link" placeholder="Enter website link">
+      <button id="extract-button">Extract CSS</button>
+    </div>
+    
+    <div id="output-section">
+      <textarea id="css-code" placeholder="Extracted CSS code will appear here" readonly></textarea>
+    </div>
+  </main>
+  
+  <script>
+    const extractButton = document.getElementById('extract-button');
+    const websiteLink = document.getElementById('website-link');
+    const cssCode = document.getElementById('css-code');
+    
+    extractButton.addEventListener('click', () => {
+      const link = websiteLink.value;
+      
+      fetch(link)
+        .then(response => response.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(html, 'text/html');
+          const stylesheets = doc.querySelectorAll('link[rel="stylesheet"]');
+          const inlineStyles = doc.querySelectorAll('style');
+          
+          let extractedCSS = '';
+          
+          stylesheets.forEach(stylesheet => {
+            const cssUrl = new URL(stylesheet.href, link);
+            extractedCSS += `/* Stylesheet: ${cssUrl.href} */\n\n`;
+            fetch(cssUrl.href)
+              .then(response => response.text())
+              .then(css => {
+                extractedCSS += `${css}\n\n`;
+                cssCode.value = extractedCSS;
+              })
+              .catch(error => {
+                console.error('Error fetching CSS:', error);
+              });
+          });
+          
+          inlineStyles.forEach(inlineStyle => {
+            extractedCSS += `/* Inline Style */\n\n${inlineStyle.textContent}\n\n`;
+          });
+          
+          cssCode.value = extractedCSS;
+        })
+        .catch(error => {
+          console.error('Error fetching website:', error);
+          cssCode.value = 'Error fetching website. Please check the link and try again.';
+        });
+    });
+  </script>
+</body>
+</html>

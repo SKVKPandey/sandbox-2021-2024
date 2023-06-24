@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Code Viewer</title>
+  <style>
+    /* Basic styling for the layout */
+    body {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+    
+    #code-input,
+    #viewer {
+      width: 45%;
+      height: 80vh;
+      resize: vertical;
+      border: 1px solid #ccc;
+      padding: 10px;
+      font-size: 16px;
+    }
+    
+    #viewer {
+      overflow: auto;
+      background-color: #f5f5f5;
+    }
+  </style>
+</head>
+<body>
+  <textarea id="code-input" placeholder="Enter your front-end code here"></textarea>
+  <div id="viewer"></div>
+  
+  <script>
+    const codeInput = document.getElementById('code-input');
+    const viewer = document.getElementById('viewer');
+    
+    codeInput.addEventListener('input', () => {
+      const code = codeInput.value;
+      viewer.innerHTML = code;
+    });
+  </script>
+</body>
+</html>

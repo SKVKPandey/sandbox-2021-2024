@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Website Code Viewer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    nav {
+      background-color: #555;
+      overflow: hidden;
+      display: flex;
+      justify-content: center; /* Center the navigation links */
+    }
+    
+    nav a {
+      float: left;
+      color: #fff;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 16px;
+    }
+    
+    nav a:hover {
+      background-color: #45a049;
+    }
+    
+    main {
+      padding: 20px;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    footer p {
+      margin: 0;
+    }
+    
+    footer a {
+      color: #fff;
+      text-decoration: none;
+    }
+    
+    footer a:hover {
+      text-decoration: underline;
+    }
+    
+    .footer-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .footer-logo {
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+    }
+    
+    .footer-links {
+      margin-left: 10px;
+    }
+    
+    .footer-links ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .footer-links ul li {
+      display: inline-block;
+      margin-right: 10px;
+    }
+    
+    #input-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    
+    #input-section input[type="text"] {
+      width: 300px;
+      padding: 10px;
+      font-size: 16px;
+    }
+    
+    #code-section {
+      display: flex;
+      height: 400px; /* Set the desired height */
+    }
+    
+    #code-input {
+      width: 50%;
+      resize: vertical;
+      border: 1px solid #ccc;
+      padding: 10px;
+      font-size: 16px;
+    }
+    
+    #iframe-container {
+      width: 50%;
+      border: 1px solid #ccc;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    #iframe-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    #input-section textarea {
+      width: 100%;
+      height: 200px;
+      resize: vertical;
+      border: 1px solid #ccc;
+      padding: 10px;
+      font-size: 16px;
+    }
+    
+    #output-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    #output-section textarea {
+      width: 100%;
+      height: 200px;
+      resize: vertical;
+      border: 1px solid #ccc;
+      padding: 10px;
+      font-size: 16px;
+    }
+    
+    .code-extractor-button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
+    
+    .code-extractor-button:hover {
+      background-color: #45a049;
+    }
+    
+    .code-extractor-button:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px #4CAF50;
+    }
+
+    #header-image {
+      width: 100%;
+      max-height: 300px;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .description {
+      text-align: center;
+      margin: 20px;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <img src="header-image.png" id="header-image" alt="Header Image">
+  </header>
+
+  <nav>
+    <a href="#codeviewer">CodeViewer</a>
+    <a href="#cssext">CSS Extractor</a>
+    <a href="#jsext">JavaScript Extractor</a>
+  </nav>
+
+  <header>
+    <h1 id="codeviewer">CodeViewer</h1>
+  </header>
+  
+  <main>
+    <div id="input-section">
+      <input type="text" id="website-link" placeholder="Enter website link">
+      <button id="view-button" class="code-extractor-button">View</button>
+    </div>
+    
+    <div id="code-section">
+      <textarea id="code-input" placeholder="Frontend code will appear here"></textarea>
+      <div id="iframe-container"></div>
+    </div>
+  </main>
+  
+  <script>
+    const viewButton = document.getElementById('view-button');
+    const websiteLink = document.getElementById('website-link');
+    const codeInput = document.getElementById('code-input');
+    const iframeContainer = document.getElementById('iframe-container');
+    
+    viewButton.addEventListener('click', () => {
+      const link = websiteLink.value;
+      const corsAnywhereUrl = 'https://cors-anywhere.herokuapp.com/'; // Using "CORS Anywhere" API
+      
+      // Set headers for the fetch request
+      const headers = new Headers();
+      headers.append('Origin', window.location.origin);
+      headers.append('X-Requested-With', 'XMLHttpRequest');
+      
+      // Fetch the frontend code from the provided link using the backend API
+      fetch(corsAnywhereUrl + link, { headers })
+        .then(response => response.text())
+        .then(code => {
+          codeInput.value = code;
+          iframeContainer.innerHTML = `<iframe src="${link}" frameborder="0"></iframe>`;
+        })
+        .catch(error => {
+          console.error('Error fetching code:', error);
+          codeInput.value = '';
+          iframeContainer.innerHTML = 'Error fetching code. Please check the link and try again.';
+        });
+    });
+  </script>
+
+  <header>
+    <h1 id="cssext">CSS Extractor</h1>
+  </header>
+  
+  <main>
+    <div id="input-section">
+      <textarea id="source-code" placeholder="Paste your source code here"></textarea>
+    </div>
+    
+    <div id="output-section">
+      <textarea id="css-code" placeholder="Extracted CSS code will appear here" readonly></textarea>
+      <button id="extract-css-button" class="code-extractor-button">Extract CSS</button>
+    </div>
+  </main>
+  
+  <script>
+    const extractCSSButton = document.getElementById('extract-css-button');
+    const sourceCode = document.getElementById('source-code');
+    const cssCode = document.getElementById('css-code');
+    
+    extractCSSButton.addEventListener('click', () => {
+      const regex = /<style[^>]*>(.*?)<\/style>/gs;
+      const matches = sourceCode.value.match(regex);
+      
+      if (matches) {
+        const extractedCSS = matches.map(match => match.replace(/<\/?style[^>]*>/g, '')).join('\n');
+        cssCode.value = extractedCSS;
+      } else {
+        cssCode.value = 'No CSS code found in the source code.';
+      }
+    });
+  </script>
+
+  <header>
+    <h1 id="jsext">JavaScript Extractor</h1>
+  </header>
+  
+  <main>
+    <div id="input-section">
+      <textarea id="js-source-code" placeholder="Paste your JavaScript code here"></textarea>
+    </div>
+    
+    <div id="output-section">
+      <textarea id="js-code" placeholder="Extracted JavaScript code will appear here" readonly></textarea>
+      <button id="extract-js-button" class="code-extractor-button">Extract JavaScript</button>
+    </div>
+  </main>
+  
+  <script>
+    const extractJSButton = document.getElementById('extract-js-button');
+    const jsSourceCode = document.getElementById('js-source-code');
+    const jsCode = document.getElementById('js-code');
+    
+    extractJSButton.addEventListener('click', () => {
+      const regex = /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi;
+      const matches = jsSourceCode.value.match(regex);
+      
+      if (matches) {
+        const extractedJS = matches.map(match => match.replace(/<\/?script[^>]*>/g, '')).join('\n');
+        jsCode.value = extractedJS;
+      } else {
+        jsCode.value = 'No JavaScript code found in the source code.';
+      }
+    });
+  </script>
+
+    <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <p>&nbsp;</p>
+    <p>&copy; 2023 WebTools. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
+
+

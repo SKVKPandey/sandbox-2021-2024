@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Video Downloader</title>
+</head>
+<body>
+  <h1>Video Downloader</h1>
+
+  <form id="downloadForm">
+    <label for="videoUrl">Video URL:</label>
+    <input type="text" id="videoUrl" required>
+    <button type="submit">Download</button>
+  </form>
+
+  <script>
+    document.getElementById('downloadForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Get the video URL from the input field
+      var videoUrl = document.getElementById('videoUrl').value;
+
+      // Create a temporary anchor element
+      var link = document.createElement('a');
+      link.download = 'video.mp4'; // Specify the desired filename with the appropriate extension
+
+      // Fetch the video data
+      fetch(videoUrl)
+        .then(response => response.blob())
+        .then(blob => {
+          // Create a URL object from the video data
+          var url = URL.createObjectURL(blob);
+
+          // Set the URL as the href attribute of the anchor element
+          link.href = url;
+
+          // Trigger a click event on the anchor element
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+
+          // Clean up the URL object
+          URL.revokeObjectURL(url);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    });
+  </script>
+</body>
+</html>
+

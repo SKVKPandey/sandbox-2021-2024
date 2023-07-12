@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Weather Forecast</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <h1>Weather Forecast</h1>
+
+  <form id="weatherForm">
+    <label for="cityInput">Enter a city:</label>
+    <input type="text" id="cityInput" required>
+    <button type="submit">Get Forecast</button>
+  </form>
+
+  <div id="weatherContainer"></div>
+
+  <script>
+    function getWeatherForecast(city) {
+      const endpoint = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=e1741b385f794be93c16e3e6fc90ba05`;
+
+      $.ajax({
+        url: endpoint,
+        success: function (result) {
+          const weather = result.weather[0];
+          const temperature = (result.main.temp - 273.15).toFixed(1); // Convert temperature to Celsius
+
+          const weatherText = `In ${city}, the weather is ${weather.description} with a temperature of ${temperature} degrees Celsius.`;
+
+          // Use text-to-speech API to read the weather forecast
+          const msg = new SpeechSynthesisUtterance(weatherText);
+          window.speechSynthesis.speak(msg);
+
+          // Display the weather forecast on the page
+          $('#weatherContainer').text(weatherText);
+        },
+        error: function () {
+          $('#weatherContainer').text('Failed to fetch weather data.');
+        }
+      });
+    }
+
+    // Form submission handler
+    $('#weatherForm').submit(function (e) {
+      e.preventDefault();
+      const selectedCity = $('#cityInput').val();
+      getWeatherForecast(selectedCity);
+    });
+  </script>
+</body>
+</html>
+

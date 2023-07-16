@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "@magenta/music": "^1.0.0",
+    "electron": "^15.2.0",
+    "express": "^4.17.1",
+    "tone": "^14.7.77"
+  },
+  "name": "eunoia",
+  "version": "1.0.0",
+  "description": "Music\u001b[D\u001b[D\u001b[D\u001b[D\u001b[DAI \u001b[3~\u001b[3~\u001b[3~\u001b[C\u001b[ Music Player\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[DBased\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C Music Player",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "\u001b[A\u001b[C\u001b[A\u001b[A\u001b[A\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[B\u001b[B\u001b[B\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D music, ai, tech\u001b[B\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[C\u001b[C\u001b[C\u001b[CSKVK Pandey",
+  "license": "ISC"
+}

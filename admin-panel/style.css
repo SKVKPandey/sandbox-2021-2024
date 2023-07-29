@@ -1,0 +1,120 @@
+form-body {
+    padding: 20px;
+  text-align: center;
+  margin-top: 120px;
+  margin-right: 10px;
+  margin-left: 10px;
+  border-radius: 20px;
+    font-family: Arial, sans-serif;
+    max-width: 600px; /* Reduce the max-width further to make the form shorter */
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+
+  
+  h2 {
+    text-align: center;
+  }
+
+  /* Header styles */
+  .header {
+    position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #36b5ff;
+  color: #fff;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  }
+  
+  form {
+    display: flex;
+    margin-top: 100px;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    font-size: 14px; /* Smaller font size */
+  }
+
+  h1 {
+    margin-top: 100px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input[type="file"],
+  input[type="text"],
+  textarea {
+    width: 100%;
+    padding: 6px; /* Reduce the input box height further */
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px; /* Smaller font size */
+  }
+  
+  textarea {
+    resize: vertical;
+  }
+  
+  input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 16px; /* Smaller padding */
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px; /* Smaller font size */
+    border-radius: 4px;
+    cursor: pointer;
+    max-width: 120px; /* Reduce the max-width of the submit button further */
+    margin-top: 10px;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  
+  /* Styling for sections */
+  .form-section {
+    flex: 1;
+    margin-right: 10px;
+    min-width: 45%;
+  }
+  
+  .space-section {
+    flex: 1;
+    min-width: 15%;
+  }
+  
+  .form-section:last-child {
+    margin-right: 0;
+  }
+  
+  .form-section h2 {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+  }
+  
+  /* Flexbox container for the two sections */
+  .form-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  /* Center the button */
+  .center-button {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  

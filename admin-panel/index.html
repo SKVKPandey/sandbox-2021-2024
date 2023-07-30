@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Upload Form</title>
+  <link rel="stylesheet" href="style.css">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-eval'">
+</head>
+<body>
+  <div class="header">
+    <h2>Admin Panel</h2>
+  </div>
+  <div class="form-body">
+    <center><h1>Course Upload Form</h1></center>
+    <form id="courseForm">
+      <!-- Course and Instructor Details Section -->
+      <center><div class="form-container">
+        <!-- Course Details Section -->
+        <div class="form-section">
+          <h2>Course Details</h2>
+          <label for="flyer">Flyer:</label>
+          <input type="file" id="flyer" name="flyer" accept=".jpg, .png" required>
+
+          <label for="background-image">Background Image:</label>
+          <input type="file" id="background-image" name="background-image" accept=".jpg, .png" required>
+
+          <label for="detailed-description">Detailed Description:</label>
+          <textarea id="detailed-description" name="detailed_description" required></textarea>
+
+          <label for="short-description">Short Description:</label>
+          <input type="text" id="short-description" name="short_description" required>
+
+          <label for="key-highlights">Key Highlights:</label>
+          <textarea id="key-highlights" name="key_highlights" required></textarea>
+
+          <label for="duration">Duration:</label>
+          <input type="text" id="duration" name="duration" required>
+
+          <label for="pre-requisite">Pre-requisite:</label>
+          <textarea id="pre-requisite" name="pre_requisite" required></textarea>
+
+          <label for="amount">Amount:</label>
+          <input type="number" id="amount" name="amount" min="0" step="any" required>
+        </div>
+
+        <!-- Gap between sections (empty div) -->
+        <div class="space-section"></div>
+
+        <!-- Instructor's Details Section -->
+        <div class="form-section">
+          <h2>Instructor's Details</h2>
+          <label for="instructors-name">Instructor's Name:</label>
+          <input type="text" id="instructors-name" name="instructors_name" required>
+
+          <label for="bio">Bio:</label>
+          <textarea id="bio" name="bio" required></textarea>
+
+          <label for="linkedin-handle">LinkedIn Handle:</label>
+          <input type="text" id="linkedin-handle" name="linkedin_handle" required>
+
+          <label for="instagram-handle">Instagram Handle:</label>
+          <input type="text" id="instagram-handle" name="instagram_handle" required>
+
+          <label for="twitter-handle">Twitter Handle:</label>
+          <input type="text" id="twitter-handle" name="twitter_handle" required>
+
+          <label for="facebook-handle">Facebook Handle:</label>
+          <input type="text" id="facebook-handle" name="facebook_handle" required>
+
+          <label for="youtube-handle">YouTube Handle:</label>
+          <input type="text" id="youtube-handle" name="youtube_handle" required>
+        </div>
+      </div></center>
+
+      <!-- Center the button -->
+      <div class="center-button">
+        <button type="submit">Upload Course</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Add the script tag to reference the renderer.js file -->
+  <script src="renderer.js"></script>
+  
+  <!-- Add the script tag to reference the bundled renderer.js file -->
+    <script src="dist/bundle.js"></script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Upload Form</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-eval'">
+</head>
+<body>
+  <div class="header">
+    <h2>Admin Panel</h2>
+  </div>
+  <div class="form-body">
+    <center><h1>Course Upload Form</h1></center>
+    <form id="courseForm" method="POST" enctype="multipart/form-data" action="/">
+      <!-- Course and Instructor Details Section -->
+      <center><div class="form-container">
+        <!-- Course Details Section -->
+        <div class="form-section">
+          <h2>Course Details</h2>
+
+          <label for="course-name">Course Name:</label>
+          <input type="text" id="course-name" name="course_name" required>
+
+          <label for="flyer">Flyer:</label>
+          <input type="file" id="flyer" name="flyer" accept=".jpg, .png" required>
+
+          <label for="background-image">Background Image:</label>
+          <input type="file" id="background-image" name="background-image" accept=".jpg, .png" required>
+
+          <label for="detailed-description">Detailed Description:</label>
+          <textarea id="detailed-description" name="detailed_description" required></textarea>
+
+          <label for="short-description">Short Description:</label>
+          <input type="text" id="short-description" name="short_description" required>
+
+          <label for="key-highlights">Key Highlights:</label>
+          <textarea id="key-highlights" name="key_highlights" required></textarea>
+
+          <label for="duration">Duration:</label>
+          <input type="text" id="duration" name="duration" required>
+
+          <label for="pre-requisite">Pre-requisite:</label>
+          <textarea id="pre-requisite" name="pre_requisite" required></textarea>
+
+          <label for="amount">Amount:</label>
+          <input type="number" id="amount" name="amount" min="0" step="any" required>
+        </div>
+
+        <!-- Gap between sections (empty div) -->
+        <div class="space-section"></div>
+
+        <!-- Instructor's Details Section -->
+        <div class="form-section">
+          <h2>Instructor's Details</h2>
+
+          <label for="instructor-image">Instructor's Image:</label>
+          <input type="file" id="instructor-image" name="instructor_image" accept=".jpg, .png" required>
+
+          <label for="instructors-name">Instructor's Name:</label>
+          <input type="text" id="instructors-name" name="instructors_name" required>
+
+          <label for="bio">Bio:</label>
+          <textarea id="bio" name="bio" required></textarea>
+
+          <label for="linkedin-handle">LinkedIn Handle:</label>
+          <input type="text" id="linkedin-handle" name="linkedin_handle" required>
+
+          <label for="instagram-handle">Instagram Handle:</label>
+          <input type="text" id="instagram-handle" name="instagram_handle" required>
+
+          <label for="twitter-handle">Twitter Handle:</label>
+          <input type="text" id="twitter-handle" name="twitter_handle" required>
+
+          <label for="facebook-handle">Facebook Handle:</label>
+          <input type="text" id="facebook-handle" name="facebook_handle" required>
+
+          <label for="youtube-handle">YouTube Handle:</label>
+          <input type="text" id="youtube-handle" name="youtube_handle" required>
+        </div>
+      </div></center>
+
+      <!-- Center the button -->
+      <div class="center-button">
+        <button type="submit">Upload Course</button>
+      </div>
+    </form>
+    <center><h1>Event Upload Form</h1></center>
+    <form id="eventForm" method="POST" enctype="multipart/form-data" action="/">
+      <!-- Event and Host Details Section -->
+      <center><div class="form-container">
+        <!-- Event Details Section -->
+        <div class="form-section">
+          <h2>Event Details</h2>
+
+          <label for="event-name">Event Name:</label>
+          <input type="text" id="event-name" name="event_name" required>
+          
+          <label for="event-flyer">Event Flyer:</label>
+          <input type="file" id="event-flyer" name="event_flyer" accept=".jpg, .png" required>
+
+          <label for="event-background-image">Event Background Image:</label>
+          <input type="file" id="event-background-image" name="event_background_image" accept=".jpg, .png" required>
+
+          <label for="event-detailed-description">Detailed Description:</label>
+          <textarea id="event-detailed-description" name="event_detailed_description" required></textarea>
+
+          <label for="event-short-description">Short Description:</label>
+          <input type="text" id="event-short-description" name="event_short_description" required>
+
+          <label for="event-date">Event Date:</label>
+          <input type="date" id="event-date" name="event_date" required>
+
+          <label for="event-time">Event Time:</label>
+          <input type="time" id="event-time" name="event_time" required>
+
+          <label for="event-location">Event Location:</label>
+          <input type="text" id="event-location" name="event_location" required>
+
+          <label for="event-amount">Event Amount:</label>
+          <input type="number" id="event-amount" name="event_amount" min="0" step="any" required>
+        </div>
+
+        <!-- Gap between sections (empty div) -->
+        <div class="space-section"></div>
+
+        <!-- Host's Details Section -->
+        <div class="form-section">
+          <h2>Host's Details</h2>
+
+          <label for="host-image">Host's Image:</label>
+          <input type="file" id="host-image" name="host_image" accept=".jpg, .png" required>
+
+          <label for="host-name">Host's Name:</label>
+          <input type="text" id="host-name" name="host_name" required>
+
+          <label for="host-bio">Bio:</label>
+          <textarea id="host-bio" name="host_bio" required></textarea>
+
+          <label for="host-linkedin-handle">LinkedIn Handle:</label>
+          <input type="text" id="host-linkedin-handle" name="host_linkedin_handle" required>
+
+          <label for="host-instagram-handle">Instagram Handle:</label>
+          <input type="text" id="host-instagram-handle" name="host_instagram_handle" required>
+
+          <label for="host-twitter-handle">Twitter Handle:</label>
+          <input type="text" id="host-twitter-handle" name="host_twitter_handle" required>
+
+          <label for="host-facebook-handle">Facebook Handle:</label>
+          <input type="text" id="host-facebook-handle" name="host_facebook_handle" required>
+
+          <label for="host-youtube-handle">YouTube Handle:</label>
+          <input type="text" id="host-youtube-handle" name="host_youtube_handle" required>
+        </div>
+      </div></center>
+
+      <!-- Center the button -->
+      <div class="center-button">
+        <button type="submit">Upload Event</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

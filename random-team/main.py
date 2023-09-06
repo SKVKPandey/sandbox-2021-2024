@@ -1,11 +1,10 @@
-names = {'Shashank', 'Seerat', 'Akshit', 'Sanchit', 
-'Anubhava', 'Riya', 'Banshaj', 'Ojasvi', 'Owais', 
-'Aditya D', 'Prince', 'Shreya', 'Kshitij', 'Manav', 'Aditya S'}
 
-groups = []
-for name in names:
-    groups.append(name)
+team_list = list(set(input(f"Enter the name of team {i+1}: ") for i in range(int(input("Enter the no. of teams: ")))))
+for team1, team2 in zip(team_list[::2], team_list[1::2]):
+    print(f"\n  >> {team1} <----> {team2}")
 
-for i in range(0, len(names), 3):
-    print(f'{(i//3) + 1}. {groups[i]}, {groups[i+1]}, {groups[i+2]}')
+    
+
+    
+
 

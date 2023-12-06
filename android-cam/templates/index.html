@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Stitching</title>
+</head>
+<body>
+    <h1>Image Stitching</h1>
+    <form id="imageForm" enctype="multipart/form-data">
+        <input type="file" name="images" multiple accept="image/*">
+        <button type="button" onclick="stitchImages()">Stitch Images</button>
+    </form>
+    <div id="result"></div>
+
+    <script>
+        function stitchImages() {
+            var form = document.getElementById('imageForm');
+            var formData = new FormData(form);
+
+            fetch('/stitch', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert(data.error);
+                } else {
+                    var resultDiv = document.getElementById('result');
+                    resultDiv.innerHTML = '<h2>Stitched Image</h2>';
+                    resultDiv.innerHTML += '<img src="data:image/jpeg;base64,' + data.result + '" alt="Stitched Image">';
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Stitching</title>
+</head>
+<body>
+    <h1>Image Stitching</h1>
+    <form id="imageForm" enctype="multipart/form-data">
+        <input type="file" name="images" multiple accept="image/*">
+        <button type="button" onclick="stitchImages()">Stitch Images</button>
+    </form>
+    <div id="result"></div>
+
+    <script>
+        function stitchImages() {
+            var form = document.getElementById('imageForm');
+            var formData = new FormData(form);
+
+            fetch('/stitch', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert(data.error);
+                } else {
+                    var resultDiv = document.getElementById('result');
+                    resultDiv.innerHTML = '<h2>Stitched Image</h2>';
+                    resultDiv.innerHTML += '<img src="data:image/jpeg;base64,' + data.result + '" alt="Stitched Image">';
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>

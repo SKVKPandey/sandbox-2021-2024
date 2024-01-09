@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Webpage with CKEditor</title>
+<script src="https://cdn.ckeditor.com/4.19.1/standard/ckeditor.js"></script>
+</head>
+<body>
+  <textarea name="editor1" id="editor1">
+    <h2>This is the initial heading</h2>
+  </textarea>
+  <script>
+    CKEDITOR.replace('editor1', {
+        height: '900px' // Or your desired height
+    }, {
+    fontSize: {
+        options: ['small', 'medium', 'large'], // Define available sizes
+        default: 'large' // Set default size
+    }
+    });
+  </script>
+</body>
+</html>

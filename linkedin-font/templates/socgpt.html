@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SocGPT</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+<body>
+    <div id="application" class="application">
+        <div style="display: flex; flex-direction: row;">      
+            <h1>Content Generator</h1>
+        </div>
+        <div class="child-content-r">
+            <div class="social-media-selection">
+                <select id="socialMediaSelect" name="socialMediaSelect">
+                    <option value="whatsapp">WhatsApp</option>
+                    <option value="facebook">Facebook</option>
+                    <option value="youtube">YouTube</option>
+                    <option value="instagram">Instagram</option>
+                    <option value="twitter">Twitter</option>
+                    <option value="linkedin" selected>LinkedIn</option>
+                    <option value="pinterest">Pinterest</option>
+                    <option value="snapchat">Snapchat</option>
+                    <option value="reddit">Reddit</option>
+                    <option value="tiktok">TikTok</option>
+                    <option value="other">Other</option>
+                </select>
+                <div id="otherSocialMediaContainer" style="display:none;">
+                    <input type="text" id="otherSocialMedia" name="otherSocialMedia" placeholder="Enter other platform">
+                </div>
+            </div>
+
+            <div class="selection-container">
+                <select id="contentTypeSelect" name="contentTypeSelect">
+                    <option value="post" selected>Post</option>
+                    <option value="marketing">Marketing</option>
+                    <option value="status_updates">Status Updates</option>
+                    <option value="announcements">Announcements</option>
+                    <option value="group_message">Group Message</option>
+                    <option value="gratitude_posts">Gratitude Posts</option>
+                    <option value="poem">Poem</option>
+                    <option value="invitation">Invitation</option>
+                    <option value="other">Other</option>
+                </select>
+                <div class="other-content-type-container">
+                    <input type="text" id="otherContentType" name="otherContentType" placeholder="Enter other content type">
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Add search bar and icon -->
+        <div class="search-container" style="margin-top: 10px;">
+            <div class="search-div">
+                <i class="icon mic-icon fas fa-microphone" style="display: none;" aria-hidden="true" role="button" tabindex="0"></i>
+                <input type="text" class="search-bar" style="" id="mainSearch" placeholder="Search..."></input>
+                <img src="{{ url_for('static', filename='images/loading.gif') }}" id="loadingIcon" class="load" alt="Loading...">
+                <i class="icon cross-icon fas fa-times" id="clearSearch" onclick="clearSearch()"></i>
+            </div>
+            <div class="ctrlBtns">
+                <div class="search-icon" id="fileUpload" style="margin-left: 0px;">
+                    <i id="fileIcon" class="fas fa-upload"></i>
+                    <label for="fileUploadInput" class="image-upload" style="display: none;">
+                        <input type="file" id="fileUploadInput" accept=".docx, .txt, .csv, .xlsx" style="display: none;">
+                    </label>
+                </div>
+                <div class="search-icon" id="cancelIcon" style="display: none;">
+                    <i class="fas fa-times"></i>
+                </div>
+                <div class="search-icon" id="imageUpload">
+                    <i class="fas fa-camera" id="cameraIcon"></i>
+                    <label for="imageUploadInput" class="image-upload" style="display: none;">
+                        <input type="file" id="imageUploadInput" accept="image/*" style="display: none;">
+                    </label>
+                </div>
+                <div class="search-icon" id="crossIcon" style="display: none;">
+                    <i class="fas fa-times"></i>
+                </div>
+                <div class="search-icon" onclick="search()"><i class="fas fa-search"></i></div>
+                <div class="search-icon" onclick="research()"><i class="fas fa-sync"></i></div>
+            </div>
+        </div>
+
+        <!-- Add collapsible div -->
+        <div class="collapsible" onclick="toggleCustomizeMore()"><b style="font-size: 18px;">Customize further</b></div>
+        
+        <div class="content">
+            <div class="child-content-v">
+                <label for="headingDes">
+                    <b style="font-size: 16px;">Heading Description</b>
+                    <br><input type="text" id="headingDes" class="search-bar" placeholder="Describe the kind of heading you want...">
+                </label>
+            </div>
+            <br>
+            <div class="child-content-v">
+                <label for="keywords">
+                    <b style="font-size: 16px;">Content Keywords</b>
+                    <br><input type="text" id="keywords" class="search-bar" placeholder="Example: Graphics, AI, Marketing, etc.">
+                </label>
+            </div>
+            <br>
+            <!-- Content for customization options goes here -->
+            <b style="font-size: 16px;">Structure and Language</b>
+            <div class="child-content-r" style="margin-top: 5px;">
+                <label for="numEmojis">
+                    Emojis:
+                    <input type="number" id="numEmojis" min="0" value="0">
+                </label>
+                <br>
+                <label for="formalitySlider">
+                    Formality:
+                    <input type="range" id="formalitySlider" min="0" max="100" value="50">
+                </label>
+                <br>
+                <label for="languageSelect">
+                        Language:
+                        <select id="languageSelect">
+                            <option value="Afrikaans">Afrikaans</option>
+                            <option value="Arabic">Arabic</option>
+                            <option value="Bengali">Bengali</option>
+                            <option value="Chinese (Simplified)">Chinese (Simplified)</option>
+                            <option value="Chinese (Traditional)">Chinese (Traditional)</option>
+                            <option value="Czech">Czech</option>
+                            <option value="Danish">Danish</option>
+                            <option value="Dutch">Dutch</option>
+                            <option value="English" selected>English</option>
+                            <option value="Finnish">Finnish</option>
+                            <option value="French">French</option>
+                            <option value="German">German</option>
+                            <option value="Greek">Greek</option>
+                            <option value="Gujarati">Gujarati</option>
+                            <option value="Hebrew">Hebrew</option>
+                            <option value="Hindi">Hindi</option>
+                            <option value="Hungarian">Hungarian</option>
+                            <option value="Indonesian">Indonesian</option>
+                            <option value="Italian">Italian</option>
+                            <option value="Japanese">Japanese</option>
+                            <option value="Kannada">Kannada</option>
+                            <option value="Korean">Korean</option>
+                            <option value="Malayalam">Malayalam</option>
+                            <option value="Marathi">Marathi</option>
+                            <option value="Norwegian">Norwegian</option>
+                            <option value="Polish">Polish</option>
+                            <option value="Portuguese (Brazil)">Portuguese (Brazil)</option>
+                            <option value="Portuguese (Portugal)">Portuguese (Portugal)</option>
+                            <option value="Romanian">Romanian</option>
+                            <option value="Russian">Russian</option>
+                            <option value="Slovak">Slovak</option>
+                            <option value="Spanish">Spanish</option>
+                            <option value="Swedish">Swedish</option>
+                            <option value="Tamil">Tamil</option>
+                            <option value="Telugu">Telugu</option>
+                            <option value="Thai">Thai</option>
+                            <option value="Turkish">Turkish</option>
+                            <option value="Ukrainian">Ukrainian</option>
+                            <option value="Urdu">Urdu</option>
+                            <option value="Vietnamese">Vietnamese</option>
+                            <!-- Add more language options as needed -->
+                        </select>
+                    </label>
+                    <!--<label for="unicodePreference" style="width: 20%;">
+                        Unicode Charset:<br>
+                        <input type="text" id="unicodeA" maxlength="1" size="1" placeholder="A" style="width: 10%;">
+                        <input type="text" id="unicodea" maxlength="1" size="1" placeholder="a" style="width: 10%;">
+                        <input type="text" id="unicode0" maxlength="1" size="1" placeholder="0" style="width: 10%;">
+                    </label>-->
+            </div>
+        </div>
+
+        <form id="editorForm" style="margin-top: 20px">
+            <label for="editor1">
+                <h2>Editor</h2>
+            </label>
+            <label for="styledHeading">
+                <b>Styled Heading:</b>
+                <input type="checkbox" id="styledHeading"> 
+            </label>
+            <br>
+            <textarea name="editor1" id="editor1"></textarea>
+            <center>
+                <button type="button" style="margin-top: 10px" onclick="convert()">Unicode Formated</button>&nbsp;&nbsp;
+                <button type="button" style="margin-top: 10px" onclick="normal()">Normal Formated</button>
+            </center>
+        </form>
+
+        <!-- Modal Dialogue Box -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <div id="resultContainer"></div>
+            </div>
+        </div>
+    </div>
+  <div class="chat-container">
+    <div class="chat-box" id="chat-box">
+      <div class="chat-message">Hello, how can I help you?</div>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="user-input" placeholder="Type your message...">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+  <script>
+    let editingMessage = null;
+    let editMode = false;
+
+    function sendMessage() {
+    const userInput = document.getElementById("user-input").value;
+    if (!userInput) {
+        return;
+    }
+
+    const chatBox = document.getElementById("chat-box");
+    const message = document.createElement("div");
+    message.classList.add("chat-message");
+    message.textContent = userInput;
+
+    if (editMode && editingMessage) {
+        editingMessage.textContent = userInput;
+        editMode = false;
+        editingMessage.classList.remove("selected");
+        editingMessage = null;
+    } else {
+        chatBox.appendChild(message);
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    document.getElementById("user-input").value = "";
+    }
+
+    function editMessage() {
+    const userInput = document.getElementById("user-input");
+    const selectedMessage = document.querySelector(".chat-message.selected");
+    if (selectedMessage) {
+        editingMessage = selectedMessage;
+        editMode = true;
+        userInput.value = selectedMessage.textContent;
+    }
+    }
+  </script>
+</body>
+</html>

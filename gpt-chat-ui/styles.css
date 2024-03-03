@@ -1,0 +1,88 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #141414; /* Dark background color */
+  color: #fff; /* White text color */
+}
+
+.chat-container {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.chat-box {
+  flex: 1;
+  width: 100%;
+  overflow-y: scroll;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  background-color: #1f1f1f; /* Darker chat box background color */
+}
+
+.chat-message {
+  background-color: #333; /* Dark chat message background color */
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.chat-message.selected {
+  background-color: #555; /* Darker selected message background color */
+}
+
+.chat-input {
+  display: flex;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #fff; /* White text color for input */
+  background-color: #333; /* Dark input background color */
+}
+
+.chat-input button {
+  padding: 10px 20px;
+  margin-left: 10px;
+  background-color: #e50914; /* Netflix red for button */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.chat-input button:hover {
+  background-color: #b2070d; /* Darker red for button hover */
+}
+
+.options {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.options button {
+  padding: 5px 10px;
+  margin-left: 10px;
+  background-color: #333; /* Dark button background color */
+  color: #fff; /* White text color for button */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.options button:hover {
+  background-color: #555; /* Darker button hover background color */
+}

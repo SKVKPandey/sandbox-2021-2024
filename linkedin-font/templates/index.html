@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Likhlo AI</title>
+    <script src="https://cdn.ckeditor.com/4.19.1/standard/ckeditor.js"></script>
+    <script src="https://unpkg.com/pdfjs-dist@2.9.359/build/pdf.js"></script>
+    <!-- Add Font Awesome for the search icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/shepherd.js@7.2.0/dist/css/shepherd.css" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <!-- Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy6gDZO5eRoSH72K9egBbGDDdRbPqD" crossorigin="anonymous">
+
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+    <style>
+        .hero-section {
+            position: relative;
+            background-image: url('../static/images/hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            padding: 5em;
+            height: 100vh; /* Set height to 100% of the viewport height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="loading-logo">
+        <img src="../static/images/logo.jpg" alt="Likhlo AI" class="logo"> 
+    </div>
+
+    <main id="main-content" style="display: none;">
+        <nav>
+            <div class="navbar-brand">
+                <img src="../static/images/logo.jpg" alt="Likhlo AI">
+                <b>Likhlo AI</b>
+            </div>
+            <div class="navbar-toggle" id="navbarToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="navbar-links" id="navbarLinks">
+                <a href="#hero">Home</a>
+                <a href="#about">About</a>
+                <a href="#application">Generate</a>
+                <a href="#future">Future Prospects</a>
+                <a href="#feedback-form">Feedback</a>
+                <a href="#career">Join Us</a>
+                <a href="https://forms.gle/YePAwABmcJwFewtK8" target="_blank">Chatbot&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+        </nav>
+        
+        <div id="hero" class="hero-section">
+            <div class="hero-content-container">
+                <div style="margin-top: 18px;">
+                <h1><b>Likhlo AI</b></h1>
+                <p><b>Unboxing accessibility with Generative AI</b></p>
+                </div>
+                <p id="descr">Likhlo AI transforms your ideas into captivating social media content effortlessly, utilizing cutting-edge generative AI and advanced algorithms. Stay ahead in the digital landscape with Likhlo AI—a revolutionary tool for seamless and inspiring content generation.</p>
+                <a href="#application" class="btn btn-danger btn-lg" id="coming" style="background-color: #e50914; border-color: #e50914;">Generate Content</a>
+            </div>
+        </div>
+
+        <div class="about-section">
+            <div id="about" class="about">
+                <div class="text-column">
+                    <h2>About Likhlo AI</h2>
+                    <p>Welcome to Likhlo AI, the ultimate solution for seamless social media content creation. Leveraging the latest in artificial intelligence, Likhlo AI transforms your ideas into captivating content effortlessly. Our innovative platform boasts features such as file and image-based content generation, ensuring a dynamic and visually compelling output.</p>
+                    <p>What sets Likhlo AI apart is its ability to break language barriers with content generation in over 40 different languages. Whether you're a seasoned creator or just starting, our user-friendly interface and smart recommendations make the content creation process intuitive and efficient. Experience the future of global content creation with Likhlo AI – where creativity knows no limits.</p>
+                    <p class="beta-note">This is the beta version of Likhlo AI, and your <a href="#feedback-form" style="color: #e50914">feedback</a> is invaluable. Kindly provide your feedback to help us enhance your experience!</p>
+                </div>
+                <div class="image-column">
+                    <img src="../static/images/robots.jpg" alt="About Us Image">
+                </div>
+            </div>
+        </div>
+
+        <div id="application" class="application">
+            <div style="display: flex; flex-direction: row;">      
+                <h1>Content Generator</h1>
+            </div>
+            <div class="child-content-r">
+                <div class="social-media-selection">
+                    <select id="socialMediaSelect" name="socialMediaSelect">
+                        <option value="whatsapp">WhatsApp</option>
+                        <option value="facebook">Facebook</option>
+                        <option value="youtube">YouTube</option>
+                        <option value="instagram">Instagram</option>
+                        <option value="twitter">Twitter</option>
+                        <option value="linkedin" selected>LinkedIn</option>
+                        <option value="pinterest">Pinterest</option>
+                        <option value="snapchat">Snapchat</option>
+                        <option value="reddit">Reddit</option>
+                        <option value="tiktok">TikTok</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <div id="otherSocialMediaContainer" style="display:none;">
+                        <input type="text" id="otherSocialMedia" name="otherSocialMedia" placeholder="Enter other platform">
+                    </div>
+                </div>
+
+                <div class="selection-container">
+                    <select id="contentTypeSelect" name="contentTypeSelect">
+                        <option value="post" selected>Post</option>
+                        <option value="marketing">Marketing</option>
+                        <option value="status_updates">Status Updates</option>
+                        <option value="announcements">Announcements</option>
+                        <option value="group_message">Group Message</option>
+                        <option value="gratitude_posts">Gratitude Posts</option>
+                        <option value="poem">Poem</option>
+                        <option value="invitation">Invitation</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <div class="other-content-type-container">
+                        <input type="text" id="otherContentType" name="otherContentType" placeholder="Enter other content type">
+                    </div>
+                </div>
+            </div><br>
+
+            <p style="font-size: small;">
+                *The image upload feature has been temporarily deactivated for bug fixing
+            </p>
+
+
+            <!-- Add search bar and icon -->
+            <div class="search-container" style="margin-top: 10px;">
+                <div class="search-div">
+                    <i class="icon mic-icon fas fa-microphone" style="display: none;" aria-hidden="true" role="button" tabindex="0"></i>
+                    <input type="text" class="search-bar" style="" id="mainSearch" placeholder="Search..."></input>
+                    <img src="{{ url_for('static', filename='images/loading.gif') }}" id="loadingIcon" class="load" alt="Loading...">
+                    <i class="icon cross-icon fas fa-times" id="clearSearch" onclick="clearSearch()"></i>
+                </div>
+                <div class="ctrlBtns">
+                    <div class="search-icon" id="imageUpload" style="display: none;">
+                        <i class="fas fa-camera" id="cameraIcon"></i>
+                        <label for="imageUploadInput" class="image-upload" style="display: none;">
+                            <input type="file" id="imageUploadInput" accept="image/*" style="display: none;">
+                        </label>
+                    </div>
+                    <div class="search-icon" id="crossIcon" style="display: none;">
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div class="search-icon" onclick="search()"><i class="fas fa-search"></i></div>
+                </div>
+            </div>
+
+            <!-- Add collapsible div -->
+            <div class="collapsible" onclick="toggleCustomizeMore()"><b style="font-size: 18px;">Customize further</b></div>
+            
+            <div class="content">
+                <div class="child-content-v">
+                    <label for="headingDes">
+                        <b style="font-size: 16px;">Heading Description</b>
+                        <br><input type="text" id="headingDes" class="search-bar" placeholder="Describe the kind of heading you want...">
+                    </label>
+                </div>
+                <br>
+                <div class="child-content-v">
+                    <label for="keywords">
+                        <b style="font-size: 16px;">Content Keywords</b>
+                        <br><input type="text" id="keywords" class="search-bar" placeholder="Example: Graphics, AI, Marketing, etc.">
+                    </label>
+                </div>
+                <br>
+                <!-- Content for customization options goes here -->
+                <b style="font-size: 16px;">Structure and Language</b>
+                <div class="child-content-r" style="margin-top: 5px;">
+                    <label for="numEmojis">
+                        Emojis:
+                        <input type="number" id="numEmojis" min="0" value="0">
+                    </label>
+                    <br>
+                    <label for="formalitySlider">
+                        Formality:
+                        <input type="range" id="formalitySlider" min="0" max="100" value="50">
+                    </label>
+                    <br>
+                    <label for="languageSelect">
+                            Language:
+                            <select id="languageSelect">
+                                <option value="Afrikaans">Afrikaans</option>
+                                <option value="Arabic">Arabic</option>
+                                <option value="Bengali">Bengali</option>
+                                <option value="Chinese (Simplified)">Chinese (Simplified)</option>
+                                <option value="Chinese (Traditional)">Chinese (Traditional)</option>
+                                <option value="Czech">Czech</option>
+                                <option value="Danish">Danish</option>
+                                <option value="Dutch">Dutch</option>
+                                <option value="English" selected>English</option>
+                                <option value="Finnish">Finnish</option>
+                                <option value="French">French</option>
+                                <option value="German">German</option>
+                                <option value="Greek">Greek</option>
+                                <option value="Gujarati">Gujarati</option>
+                                <option value="Hebrew">Hebrew</option>
+                                <option value="Hindi">Hindi</option>
+                                <option value="Hungarian">Hungarian</option>
+                                <option value="Indonesian">Indonesian</option>
+                                <option value="Italian">Italian</option>
+                                <option value="Japanese">Japanese</option>
+                                <option value="Kannada">Kannada</option>
+                                <option value="Korean">Korean</option>
+                                <option value="Malayalam">Malayalam</option>
+                                <option value="Marathi">Marathi</option>
+                                <option value="Norwegian">Norwegian</option>
+                                <option value="Polish">Polish</option>
+                                <option value="Portuguese (Brazil)">Portuguese (Brazil)</option>
+                                <option value="Portuguese (Portugal)">Portuguese (Portugal)</option>
+                                <option value="Romanian">Romanian</option>
+                                <option value="Russian">Russian</option>
+                                <option value="Slovak">Slovak</option>
+                                <option value="Spanish">Spanish</option>
+                                <option value="Swedish">Swedish</option>
+                                <option value="Tamil">Tamil</option>
+                                <option value="Telugu">Telugu</option>
+                                <option value="Thai">Thai</option>
+                                <option value="Turkish">Turkish</option>
+                                <option value="Ukrainian">Ukrainian</option>
+                                <option value="Urdu">Urdu</option>
+                                <option value="Vietnamese">Vietnamese</option>
+                                <!-- Add more language options as needed -->
+                            </select>
+                        </label>
+                        <!--<label for="unicodePreference" style="width: 20%;">
+                            Unicode Charset:<br>
+                            <input type="text" id="unicodeA" maxlength="1" size="1" placeholder="A" style="width: 10%;">
+                            <input type="text" id="unicodea" maxlength="1" size="1" placeholder="a" style="width: 10%;">
+                            <input type="text" id="unicode0" maxlength="1" size="1" placeholder="0" style="width: 10%;">
+                        </label>-->
+                </div>
+            </div>
+
+            <form id="editorForm" style="margin-top: 20px">
+                <label for="editor1">
+                    <h2>Editor</h2>
+                </label>
+                <label for="styledHeading">
+                    <b>Styled Heading:</b>
+                    <input type="checkbox" id="styledHeading"> 
+                </label>
+                <br>
+                <textarea name="editor1" id="editor1"></textarea>
+                <center>
+                    <button type="button" style="margin-top: 10px" onclick="convert()">Unicode Formated</button>&nbsp;&nbsp;
+                    <button type="button" style="margin-top: 10px" onclick="normal()">Normal Formated</button>
+                </center>
+            </form>
+
+            <!-- Modal Dialogue Box -->
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <div id="resultContainer"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="future-section">
+            <div id="future" class="future">
+                <div class="text-column">
+                    <h2>Future Prospects</h2>
+                    <p>In the future, Likhlo AI's API-based chatbot services are poised to revolutionize content creation by focusing on continuous innovation. Expanding beyond its current support for 40 languages, Likhlo AI is likely to enhance its language capabilities, facilitating seamless communication and content generation in even more diverse linguistic landscapes. The platform may evolve to support a broader range of content types, potentially integrating multimedia elements such as videos and audio clips, offering users a more versatile and dynamic creative experience.</p>
+                    <p>Additionally, Likhlo AI could prioritize advanced personalization, tailoring content suggestions based on individual user preferences and styles. Integration with emerging technologies like augmented and virtual reality may also be explored, providing users with opportunities to create immersive and interactive content. As the platform advances, collaborations with other services, real-time collaboration features, and machine learning enhancements could further solidify Likhlo AI as the go-to solution for effortless and intelligent global content creation.</p>
+                </div>
+                <div class="image-column">
+                    <div class="profile">
+                        <img src="../static/images/linkedindp.jpg" alt="Founder - SKVK Pandey">  
+                        <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; margin-top: 5px;">
+                            <div style="margin-left: 10px;">Developer<br>
+                            SKVK Pandey</div>
+                            <a href="https://www.linkedin.com/in/skvkpandey/" target="_blank">
+                                <img src="../static/images/linkedinlogo.png" style="width: 30px; height: 30px; border-radius: 0px; margin-right: 10px; cursor: pointer;" alt="LinkedIn - SKVK Pandey">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="display: flex; flex-direction: row; width: 100%; margin-bottom: 20px; justify-content: center; align-items: center;">
+            <div id="feedback-form" style="display: flex; flex-direction: column; width: 100%; margin-bottom: 20px; justify-content: center; align-items: center;" >
+                <h2 style="display: inline-block; margin-right: 10px; text-align: center;">Feedback Form</h2>
+                <p style="width: 48%; text-align: center;">Your feedback is incredibly valuable to us as we strive to continually improve our product and provide the best possible experience for our users. Please take a few moments to share your thoughts with us by completing the following review form. Your input will help us understand what we're doing well and where we can make enhancements.</p>
+                <a href="https://forms.gle/fYXcLFTuzPiaJyhdA" target="_blank" class="btn">Goto Feedback Form</a>
+            </div>            
+        </div>
+
+        <div class="future-section">
+            <div id="career" class="future">
+                <div class="text-column">
+                    <h3 style="color:#e50914;">Likhlo AI is hiring - Outreach Intern!!</h3><br>
+                    <h4>Role Description</h4><br>
+                    <div>This is a remote internship role as an Outreach Intern at Likhlo AI. The Outreach Intern will be responsible for the following tasks:</div>
+                    <br>
+                    <p>
+                        <ul>
+                            <li>Reaching out to individuals to use the application and provide their feedback (in the feedback form),</li><br>
+                            <li>Conducting the market research survey for the Chatbot Services (form link will be provided).</li>
+                        </ul>
+                    </p>
+                    <br>
+                    <div>
+                        <b>Last Date to Apply: 11<sup>th</sup> June, 2024 </b><br><br>
+                        <div style="font-size: small;">
+                            *For checking further details, click on apply now or visit our LinkedIn page.
+                        </div>
+                        </div>
+                    <br>
+                    <a href="https://www.linkedin.com/jobs/view/3928810474/" target="_blank" class="btn">Apply Now</a>
+                </div>
+                <div class="image-column">
+                    <div class="profile">
+                        <img src="../static/images/intern.jpg" alt="Outreach Intern"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Footer Section -->
+        <footer style="display: flex; flex-direction: column; background-color: #000; color: #fff;">
+            <!--<div class="footer-content" style="width: 100%; justify-content: space-between; background-color: #111;">
+                    <div style="border-radius: 0; font-size: 18px; color: #fff; text-align: left;">
+                            <div style="cursor: pointer;" onmouseover="this.style.color='#e50914';" onmouseout="this.style.color='#fff';"><i class="fab fa-linkedin"></i>&nbsp;LinkedIn Page</div>
+                            <div style="cursor: pointer;" onmouseover="this.style.color='#e50914';" onmouseout="this.style.color='#fff';"><i class="fas fa-envelope"></i>&nbsp;someone@example.com</div>
+                    </div>
+                    <div style="border-radius: 0; font-size: 18px; color: #fff; text-align: right;">
+                        <div style="cursor: pointer;" onmouseover="this.style.color='#e50914';" onmouseout="this.style.color='#fff';">About Us</div>
+                        <div style="cursor: pointer;" onmouseover="this.style.color='#e50914';" onmouseout="this.style.color='#fff';">Contact Us</div>
+                        <div style="cursor: pointer;" onmouseover="this.style.color='#e50914';" onmouseout="this.style.color='#fff';">Privacy Policy</div>
+                        <div style="cursor: pointer;" onmouseover="this.style.color='#e50914';" onmouseout="this.style.color='#fff';">Terms of Service</div>
+                    </div>
+            </div>-->
+            <div style="text-align: center; margin-top: 15px; margin-bottom: 10px;">
+                <p>&copy; 2024 Likhlo AI. All rights reserved. Developed by SKVK Pandey.</p>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        
+        CKEDITOR.replace('editor1', {
+            height: '400px'
+        });
+
+        // JavaScript to show/hide the "Other" input based on user selection
+        var imgFile;
+        var socialMediaSelect = document.getElementById("socialMediaSelect");
+        var otherSocialMediaContainer = document.getElementById("otherSocialMediaContainer");
+
+        window.SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
+        const recognition = new SpeechRecognition();
+        
+        recognition.continuous = true;
+        recognition.interimResults = true;
+        let isListening = false;
+    
+        recognition.onresult = (event) => {
+            const transcript = Array.from(event.results)
+                .map(result => result[0].transcript)
+                .join('');
+    
+            document.getElementById('mainSearch').value = transcript;
+        };
+    
+        recognition.onstart = () => {
+            // Change the icon color to Netflix red when recognition starts
+            document.querySelector('.mic-icon').classList.add('active');
+        };
+    
+        recognition.onend = () => {
+            // Restart the recognition only if it's still set to continuous listening
+            if (isListening) {
+                recognition.start();
+            } else {
+                // Change the icon color back to default when recognition stops
+                document.querySelector('.mic-icon').classList.remove('active');
+            }
+        };
+    
+        document.querySelector('.mic-icon').addEventListener('click', () => {
+            if (isListening) {
+                // If already listening, stop the recognition
+                recognition.stop();
+            } else {
+                // If not listening, start the recognition
+                recognition.start();
+            }
+            // Toggle the listening state
+            isListening = !isListening;
+        });
+
+        function clearSearch() {
+            // Get the input element
+            var searchInput = document.getElementById("mainSearch");
+        
+            // Clear the input value
+            searchInput.value = "";
+        }
+
+        socialMediaSelect.addEventListener("change", function() {
+            if (socialMediaSelect.value === "other") {
+                otherSocialMediaContainer.style.display = "block";
+            } else {
+                otherSocialMediaContainer.style.display = "none";
+            }
+        });
+
+        const clickHandler = function() {
+            document.getElementById('imageUploadInput').click();
+        };
+        
+        document.getElementById('imageUpload').addEventListener('click', clickHandler);
+        
+        document.getElementById('fileUpload').addEventListener('click', function() {
+            document.getElementById('fileUploadInput').click();
+        });
+        
+        // JavaScript to show/hide the "Other" input based on user selection
+        var contentTypeSelect = document.getElementById("contentTypeSelect");
+        var otherContentTypeContainer = document.querySelector(".other-content-type-container");
+        
+        contentTypeSelect.addEventListener("change", function () {
+            if (contentTypeSelect.value === "other") {
+                otherContentTypeContainer.style.display = "block";
+            } else {
+                otherContentTypeContainer.style.display = "none";
+            }
+        });
+        
+        const unloadImageIcon = document.getElementById('unloadImageIcon');
+        const imageUploadInput = document.getElementById('imageUploadInput');
+        const imageContainer = document.getElementById('imageUpload'); // Assuming 'imageUpload' is the container div for the image
+        const cameraIcon = document.getElementById('cameraIcon');
+        const crossIcon = document.getElementById('crossIcon');
+        
+        document.getElementById('imageUploadInput').addEventListener('change', function() {
+            console.log(this.files[0]);
+            handleImageUpload(this.files[0]);
+            console.log(this.files[0]);
+        });
+        
+        async function handleImageUpload(file) {
+            if (file) {
+                // Reset previous preview
+                const uploadedImage = document.getElementById('uploadedImage');
+                if (uploadedImage) {
+                    uploadedImage.remove();
+                    uploadedImage.removeEventListener('click', clickHandler);
+                }
+        
+                // Create a new image element
+                const img = document.createElement('img');
+                img.src = URL.createObjectURL(file);
+                //img.style.maxWidth = '200px';
+                //img.style.maxHeight = '200px';
+                //img.style.marginTop = '2px';
+                img.setAttribute('id', 'uploadedImage'); // Set the id attribute
+                img.addEventListener('click', clickHandler);
+        
+                // Append the new image to the container
+                imageContainer.appendChild(img);
+        
+                // Show/hide elements as needed
+                cameraIcon.style.display = 'none';
+                crossIcon.style.display = 'block';
+        
+                // Store the uploaded image file
+                imgFile = file;
+                document.getElementById('imageUpload').removeEventListener('click', clickHandler);
+            }
+        }
+        
+        crossIcon.addEventListener('click', function() {
+            // Remove the uploaded image element
+            const uploadedImage = document.getElementById('uploadedImage');
+            if (uploadedImage) {
+                uploadedImage.remove();
+                uploadedImage.removeEventListener('click', clickHandler);
+            }
+        
+            // Show/hide elements as needed
+            cameraIcon.style.display = 'block';
+            crossIcon.style.display = 'none';
+        
+            // Clear the input field (optional)
+            imageUploadInput.value = '';
+        
+            // Reset the stored image file
+            imgFile = null;
+
+            document.getElementById('imageUpload').addEventListener('click', clickHandler);
+        });
+
+        async function search() {
+            // Make the loading GIF visible
+            document.getElementById('clearSearch').style.display = 'none';
+            document.querySelector('.load').style.display = 'block';
+
+            var searchContent = document.getElementById('mainSearch').value;
+            var socialMediaSelect = document.getElementById('socialMediaSelect').value;
+            var contentTypeSelect = document.getElementById('contentTypeSelect').value;
+            var otherSocialMedia = document.getElementById('otherSocialMedia').value;
+            var otherContentType = document.getElementById('otherContentType').value;
+            var heading = document.getElementById('headingDes').value;
+            var keywords = document.getElementById('keywords').value;
+            var styledHeading = document.getElementById('styledHeading').checked; // Get the state of the checkbox
+            var numEmojis = document.getElementById('numEmojis').value; // Get the number of emojis
+            var formalityPercent = document.getElementById('formalitySlider').value; // Get the formality percentage
+            var selectedLanguage = document.getElementById('languageSelect').value;
+    
+            var formData = new FormData();
+            formData.append('socialMediaSelect', socialMediaSelect);
+            formData.append('contentTypeSelect', contentTypeSelect);
+            formData.append('otherSocialMedia', otherSocialMedia);
+            formData.append('otherContentType', otherContentType);
+            formData.append('search_content', searchContent);
+            formData.append('heading', heading);
+            formData.append('keywords', keywords);
+            formData.append('styledHeading', styledHeading); // Append the state of the checkbox to the form data
+            formData.append('numEmojis', numEmojis);
+            formData.append('formalityPercent', formalityPercent);
+            formData.append('selectedLanguage', selectedLanguage);
+            if (imgFile) {
+                formData.append('file', imgFile);
+                console.log(imgFile);
+            }
+    
+            try {
+                const response = await fetch('/search', {
+                    method: 'POST',
+                    body: formData
+                });
+        
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+        
+                const data = await response.json();
+        
+                window.location.href = "#editorForm";
+                CKEDITOR.instances.editor1.setData(data.search_result_html);
+        
+                // Make the loading GIF invisible again after fetching data
+                document.querySelector('.load').style.display = 'none';
+                document.getElementById('clearSearch').style.display = 'block';
+            } catch (error) {
+                // Handle error as needed
+            }
+        }
+
+        async function research() {
+            // Make the loading GIF visible
+            document.getElementById('clearSearch').style.display = 'none';
+            document.querySelector('.load').style.display = 'block';
+
+            var searchContent = document.getElementById('mainSearch').value;
+            var socialMediaSelect = document.getElementById('socialMediaSelect').value;
+            var contentTypeSelect = document.getElementById('contentTypeSelect').value;
+            var otherSocialMedia = document.getElementById('otherSocialMedia').value;
+            var otherContentType = document.getElementById('otherContentType').value;
+            var heading = document.getElementById('headingDes').value;
+            var keywords = document.getElementById('keywords').value;
+            var styledHeading = document.getElementById('styledHeading').checked; // Get the state of the checkbox
+            var numEmojis = document.getElementById('numEmojis').value; // Get the number of emojis
+            var formalityPercent = document.getElementById('formalitySlider').value; // Get the formality percentage
+            var selectedLanguage = document.getElementById('languageSelect').value;
+            var editorData = CKEDITOR.instances.editor1.getData();
+    
+            var formData = new FormData();
+            formData.append('socialMediaSelect', socialMediaSelect);
+            formData.append('contentTypeSelect', contentTypeSelect);
+            formData.append('otherSocialMedia', otherSocialMedia);
+            formData.append('otherContentType', otherContentType);
+            formData.append('search_content', searchContent);
+            formData.append('heading', heading);
+            formData.append('keywords', keywords);
+            formData.append('styledHeading', styledHeading); // Append the state of the checkbox to the form data
+            formData.append('numEmojis', numEmojis);
+            formData.append('formalityPercent', formalityPercent);
+            formData.append('selectedLanguage', selectedLanguage);
+            formData.append('editorData', editorData);
+            if (imgFile) {
+                formData.append('file', imgFile);
+            }
+    
+            try {
+                const response = await fetch('/research', {
+                    method: 'POST',
+                    body: formData
+                });
+        
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+        
+                const data = await response.json();
+        
+                window.location.href = "#editorForm";
+                CKEDITOR.instances.editor1.setData(data.research_result_html);
+        
+                // Make the loading GIF invisible again after fetching data
+                document.querySelector('.load').style.display = 'none';
+                document.getElementById('clearSearch').style.display = 'block';
+
+            } catch (error) {
+                // Handle error as needed
+            }
+        }
+    
+        function convert() {
+            var editorContent = CKEDITOR.instances.editor1.getData();
+            var styledHeading = document.getElementById('styledHeading').checked; // Get the state of the checkbox
+    
+            // Make the loading GIF visible
+            document.querySelector('.load').style.display = 'block';
+    
+            var formData = new FormData();
+            formData.append('editor_content', editorContent);
+            formData.append('styledHeading', styledHeading); // Append the state of the checkbox to the form data
+    
+            fetch('/convert', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('resultContainer').innerHTML = `
+                    <div style="width: 100%; display: flex; align-item: center; justify-content: center;">
+                    <div class="copy-container" id="textToCopy" style="border: 2px solid #000; padding: 10px;">
+                    <div>${data.output_html}</div>
+                    <span class="copy-icon" onclick="copyText()"><i class="far fa-copy"></i></span>
+                    </div>
+                    </div>
+                `;
+    
+                    // Make the loading GIF invisible again after converting data
+                    document.querySelector('.load').style.display = 'none';
+                });
+
+            document.getElementById('myModal').style.display = 'block';
+        }
+
+        function normal() {
+            var editorContent = CKEDITOR.instances.editor1.getData();
+            var styledHeading = document.getElementById('styledHeading').checked; // Get the state of the checkbox
+    
+            // Make the loading GIF visible
+            document.querySelector('.load').style.display = 'block';
+    
+            document.getElementById('resultContainer').innerHTML = `
+            <div style="width: 100%; display: flex; align-item: center; justify-content: center;">
+            <div class="copy-container" id="textToCopy" style="border: 2px solid #000; padding: 10px;">
+            <div>${editorContent}</div>
+            <span class="copy-icon" onclick="copyText()"><i class="far fa-copy"></i></span>
+            </div>
+            </div>`
+
+            document.getElementById('myModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            // Close the modal
+            document.getElementById('myModal').style.display = 'none';
+        }
+
+        // Close the modal if the user clicks outside of it
+        window.onclick = function (event) {
+            var modal = document.getElementById('myModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        function copyText() {
+            // Get the text content from the div
+            const textToCopy = document.getElementById('textToCopy');
+            const text = textToCopy.innerText;
+
+            // Create a textarea element to hold the text
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+
+            // Append the textarea to the document
+            document.body.appendChild(textarea);
+
+            // Select the text in the textarea
+            textarea.select();
+            textarea.setSelectionRange(0, 99999); /* For mobile devices */
+
+            // Copy the selected text to the clipboard
+            document.execCommand('copy');
+
+            // Remove the textarea from the document
+            document.body.removeChild(textarea);
+
+            // Optional: Provide visual feedback (e.g., alert)
+            alert('Text copied to clipboard!');
+        }
+    
+        // Function to toggle the visibility of the customization options
+        function toggleCustomizeMore() {
+            var content = document.querySelector('.content');
+            content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+    </script>
+
+    <script>
+        
+        const cancelIcon = document.getElementById('cancelIcon');
+        var fileIcon = document.getElementById('fileIcon');
+        fileUploadInput.addEventListener('change', handleFileUpload);
+
+        async function handleFileUpload(event) {
+            const file = event.target.files[0];
+
+            fileIcon.classList.remove("fas", "fa-upload"); // Remove the upload icon class
+            fileIcon.classList.add("fas", "fa-file"); // Add the sync icon class
+            cancelIcon.style.display = "block";
+
+            if (file) {
+                const fileType = getFileType(file.name);
+
+                switch (fileType) {
+                    case 'txt':
+                        readTextFile(file);
+                        break;
+                    case 'docx':
+                        sendToFlaskServer(file);
+                        break;
+                    case 'pdf':
+                        sendToFlaskServer(file);
+                        break;
+                    case 'csv':
+                        sendToFlaskServer(file);
+                        break;
+                    case 'xlsx':
+                        sendToFlaskServer(file);
+                        break;
+                    default:
+                }
+            }
+        }
+
+        cancelIcon.addEventListener('click', function() {
+            const fileUploadInput = document.getElementById('fileUploadInput');
+            const crossIcon = document.getElementById('crossIcon');
+
+            fileIcon.classList.remove("fas", "fa-file"); 
+            fileIcon.classList.add("fas", "fa-upload"); 
+
+            // Reset file input
+            fileUploadInput.value = null;
+
+            // Hide cross icon
+            cancelIcon.style.display = "none";
+
+            // Clear CKEditor content
+            CKEDITOR.instances.editor1.setData('');
+        });
+
+        function getFileType(fileName) {
+            const extension = fileName.split('.').pop().toLowerCase();
+            return extension;
+        }
+
+        function readTextFile(file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const contents = e.target.result;
+                CKEDITOR.instances.editor1.setData(contents);
+            };
+            reader.readAsText(file);
+        }
+
+        function sendToFlaskServer(file) {
+            const formData = new FormData();
+            formData.append('docfile', file);
+        
+            fetch('/fileHandle', {
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => response.json())
+            .then(data => {
+                CKEDITOR.instances.editor1.setData(data.data);
+            })
+            .catch(error => {
+            });
+        }
+
+        </script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // JavaScript to toggle the menu
+                document.querySelector('.navbar-toggle').addEventListener('click', function () {
+                    document.querySelector('.navbar-links').classList.toggle('show');
+                }); 
+            });
+        </script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // Select the logo element
+                var logo = document.getElementById('loading-logo');
+            
+                // Flag to check if the fadeUp animation is complete
+                var fadeUpComplete = false;
+            
+                // Listen for the end of the fadeUp animation
+                logo.addEventListener('animationend', function () {
+                    fadeUpComplete = true;
+            
+                    // Check if both conditions are met before executing the window onload function
+                    if (fadeUpComplete && document.readyState === 'complete') {
+                        // Add a 0.5-second delay
+                        setTimeout(function () {
+                            // Hide the loading logo and text
+                            logo.style.display = 'none';
+            
+                            // Show the main content
+                            document.getElementById('main-content').style.display = 'block';
+                        }, 500);
+                    }
+                });
+            
+                // Check if all components of the main body are loaded
+                if (document.readyState === 'complete') {
+                    fadeUpComplete = true;
+            
+                    // Add a 0.5-second delay
+                    setTimeout(function () {
+                        // Hide the loading logo and text
+                        logo.style.display = 'none';
+            
+                        // Show the main content
+                        document.getElementById('main-content').style.display = 'block';
+                    }, 500);
+                }
+            });                        
+        </script>
+
+        <script src="https://unpkg.com/shepherd.js@7.2.0/dist/js/shepherd.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-eMNCOI93JDIh3P0VaqqwNscwuKmvaYRvUTP8Y6ojsBb8E6EFDPAz9YsUlnJ5Y8f" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy6gDZO5eRoSH72K9egBbGDDdRbPqD" crossorigin="anonymous"></script>
+
+</body>
+</html>

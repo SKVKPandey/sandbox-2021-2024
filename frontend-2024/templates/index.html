@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Likhlo AI</title>
+    <script src="https://cdn.ckeditor.com/4.19.1/standard/ckeditor.js"></script>
+    <script src="https://unpkg.com/pdfjs-dist@2.9.359/build/pdf.js"></script>
+    <!-- Add Font Awesome for the search icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/shepherd.js@7.2.0/dist/css/shepherd.css" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <!-- Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy6gDZO5eRoSH72K9egBbGDDdRbPqD" crossorigin="anonymous">
+
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+    <style>
+        .hero-section {
+            position: relative;
+            background-image: url('../static/images/hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            padding: 5em;
+            height: 100vh; /* Set height to 100% of the viewport height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="loading-logo">
+        <img src="../static/images/logo.jpg" alt="Likhlo AI" class="logo"> 
+    </div>
+
+    <main id="main-content" style="display: none;">
+        <nav>
+            <div class="navbar-brand">
+                <img src="../static/images/logo.jpg" alt="Likhlo AI">
+                <b>Likhlo AI</b>
+            </div>
+            <div class="navbar-toggle" id="navbarToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="navbar-links" id="navbarLinks">
+                <a href="#hero">Home</a>
+                <a href="#about">About</a>
+                <a href="#application">Generate</a>
+                <a href="#future">Future Prospects</a>
+                <a href="https://forms.gle/YePAwABmcJwFewtK8" target="_blank">Chatbot&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+        </nav>
+        
+        <div id="hero" class="hero-section">
+            <div class="hero-content-container">
+                <div style="margin-top: 18px;">
+                <h1><b>Likhlo AI</b></h1>
+                <p><b>Unboxing accessibility with Generative AI</b></p>
+                </div>
+                <p id="descr">Likhlo AI transforms your ideas into captivating social media content effortlessly, utilizing cutting-edge generative AI and advanced algorithms. Stay ahead in the digital landscape with Likhlo AI—a revolutionary tool for seamless and inspiring content generation.</p>
+                <a href="#application" class="btn btn-danger btn-lg" id="coming" style="background-color: #e50914; border-color: #e50914;">Generate Content</a>
+            </div>
+        </div>
+
+        <div class="about-section">
+            <div id="about" class="about">
+                <div class="text-column">
+                    <h2>About Likhlo AI</h2>
+                    <p>Welcome to Likhlo AI, the ultimate solution for seamless social media content creation. Leveraging the latest in artificial intelligence, Likhlo AI transforms your ideas into captivating content effortlessly. Our innovative platform boasts features such as file and image-based content generation, ensuring a dynamic and visually compelling output.</p>
+                    <p>What sets Likhlo AI apart is its ability to break language barriers with content generation in over 40 different languages. Whether you're a seasoned creator or just starting, our user-friendly interface and smart recommendations make the content creation process intuitive and efficient. Experience the future of global content creation with Likhlo AI – where creativity knows no limits.</p>
+                    <p class="beta-note">This is the beta version of Likhlo AI, and your <a href="#feedback-form" style="color: #e50914">feedback</a> is invaluable. Kindly provide your feedback to help us enhance your experience!</p>
+                </div>
+                <div class="image-column">
+                    <img src="../static/images/robots.jpg" alt="About Us Image">
+                </div>
+            </div>
+        </div>
+
+        <div id="application" class="application">
+            <div class="about">
+                <div class="text-column">
+                    <h2>Get Early Access to Likhlo Creators Beta 2.0</h2>
+                    <p>This is an upcoming beta 2.0 version of the Likhlo Creators application, which will soon be available for early access to select individuals.</p>
+                    <p>This application is designed to generate customized content for social media platforms, offering both text and image generation capabilities. Leveraging advanced AI algorithms, Likhlo Creators will allow users to create engaging and personalized posts tailored to specific audiences and trends.</p>
+                    <p>By joining the early access program, you'll be among the first to explore these new features and provide feedback before the official launch. In the future, Likhlo Creators will also include capabilities for video generation, voice generation, and content scheduling, further enhancing your social media presence and streamlining the content creation process.</p>
+                    <a href="https://forms.gle/UoHtxvKkhBozbNug7" target="_blank" class="btn btn-danger btn-lg" style="background-color: #e50914; border-color: #e50914;">Join the Waitlist</a>
+                </div>
+                <div class="image-column">
+                    <img src="../static/images/likhlo-creators.jpg" alt="Likhlo Creators">
+                </div>
+            </div>
+        </div>
+
+        <div class="future-section">
+            <div id="future" class="future">
+                <div class="text-column">
+                    <h2>Future Prospects</h2>
+                    <p>In the future, Likhlo AI's API-based chatbot services are poised to revolutionize content creation by focusing on continuous innovation. Expanding beyond its current support for 40 languages, Likhlo AI is likely to enhance its language capabilities, facilitating seamless communication and content generation in even more diverse linguistic landscapes. The platform may evolve to support a broader range of content types, potentially integrating multimedia elements such as videos and audio clips, offering users a more versatile and dynamic creative experience.</p>
+                    <p>Additionally, Likhlo AI could prioritize advanced personalization, tailoring content suggestions based on individual user preferences and styles. Integration with emerging technologies like augmented and virtual reality may also be explored, providing users with opportunities to create immersive and interactive content. As the platform advances, collaborations with other services, real-time collaboration features, and machine learning enhancements could further solidify Likhlo AI as the go-to solution for effortless and intelligent global content creation.</p>
+                </div>
+                <div class="image-column">
+                    <div class="profile">
+                        <img src="../static/images/linkedindp.jpg" alt="Founder - SKVK Pandey">  
+                        <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; margin-top: 5px;">
+                            <div style="margin-left: 10px;">Developer<br>
+                            SKVK Pandey</div>
+                            <a href="https://www.linkedin.com/in/skvkpandey/" target="_blank">
+                                <img src="../static/images/linkedinlogo.png" style="width: 30px; height: 30px; border-radius: 0px; margin-right: 10px; cursor: pointer;" alt="LinkedIn - SKVK Pandey">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="display: flex; flex-direction: row; width: 100%; justify-content: center; align-items: center; border-radius: 0px;">
+            <div id="feedback-form" style="display: flex; flex-direction: column; width: 100%; justify-content: center; align-items: center; border-radius: 0px;" >
+                <h2 style="display: inline-block; margin-right: 10px; text-align: center;">Chatbot Survey</h2>
+                <p style="width: 48%; text-align: center;">We are conducting market research for Likhlo AI to gain insights into the preferences and needs of individuals and businesses concerning chatbot services. Your feedback will be invaluable in helping us customize our chatbot offerings and subscription plans to better meet your needs.</p>
+                <a href="https://forms.gle/kqyU5uu8r4osmKdJ8" target="_blank" class="btn">Goto Survey Form</a>
+            </div>            
+        </div>
+
+        <!-- Footer Section -->
+        <footer style="display: flex; flex-direction: column; background-color: #000; color: #fff;">
+            <div style="text-align: center; margin-top: 15px; margin-bottom: 10px;">
+                <p>&copy; 2024 Likhlo AI. All rights reserved. Developed by SKVK Pandey.</p>
+            </div>
+        </footer>
+    </main>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // JavaScript to toggle the menu
+                document.querySelector('.navbar-toggle').addEventListener('click', function () {
+                    document.querySelector('.navbar-links').classList.toggle('show');
+                }); 
+            });
+        </script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // Select the logo element
+                var logo = document.getElementById('loading-logo');
+            
+                // Flag to check if the fadeUp animation is complete
+                var fadeUpComplete = false;
+            
+                // Listen for the end of the fadeUp animation
+                logo.addEventListener('animationend', function () {
+                    fadeUpComplete = true;
+            
+                    // Check if both conditions are met before executing the window onload function
+                    if (fadeUpComplete && document.readyState === 'complete') {
+                        // Add a 0.5-second delay
+                        setTimeout(function () {
+                            // Hide the loading logo and text
+                            logo.style.display = 'none';
+            
+                            // Show the main content
+                            document.getElementById('main-content').style.display = 'block';
+                        }, 500);
+                    }
+                });
+            
+                // Check if all components of the main body are loaded
+                if (document.readyState === 'complete') {
+                    fadeUpComplete = true;
+            
+                    // Add a 0.5-second delay
+                    setTimeout(function () {
+                        // Hide the loading logo and text
+                        logo.style.display = 'none';
+            
+                        // Show the main content
+                        document.getElementById('main-content').style.display = 'block';
+                    }, 500);
+                }
+            });                        
+        </script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-eMNCOI93JDIh3P0VaqqwNscwuKmvaYRvUTP8Y6ojsBb8E6EFDPAz9YsUlnJ5Y8f" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy6gDZO5eRoSH72K9egBbGDDdRbPqD" crossorigin="anonymous"></script>
+
+</body>
+</html>

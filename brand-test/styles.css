@@ -1,0 +1,149 @@
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    background-color: #2c3b47;
+    line-height: 1.6;
+  }
+  
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Header */
+  .header {
+    background-color: #24162e;
+    padding: 1rem 0;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    color: #dd9b56;
+  }
+  
+  .nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .nav a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+  }
+  
+  .nav a:hover {
+    background-color: #742772;
+    border-radius: 5px;
+  }
+  
+  /* Hero Section */
+.hero {
+    position: relative;
+    text-align: center;
+    background-image: url('hero-bg.png'); /* Add your image path here */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    padding: 5rem 1rem;
+    height: 60vh; /* Adjust height as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .hero-content {
+    background-color: #742772; /* Pink box color */
+    color: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    max-width: 80%;
+    text-align: center;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-content p {
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-content .btn {
+    margin-top: 1rem;
+  }
+  
+  /* Ensure text contrasts with the background */
+  .hero-content h1, .hero-content p, .hero-content a {
+    color: #ffffff;
+  }  
+  
+  .btn {
+    background-color: #678d73;
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
+  .btn:hover {
+    background-color: #dd9b56;
+    color: #2c3b47;
+  }
+  
+  /* About Section */
+  .about {
+    background-color: #2c3b47;
+    color: #ffffff;
+    padding: 3rem 1rem;
+    text-align: center;
+  }
+  
+  /* Services Section */
+  .services {
+    background-color: #678d73;
+    color: #ffffff;
+    padding: 3rem 1rem;
+  }
+  
+  .service-list {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  .service-item {
+    background-color: #24162e;
+    padding: 1rem;
+    border-radius: 5px;
+    width: 30%;
+    text-align: center;
+  }
+  
+  /* Footer */
+  .footer {
+    background-color: #2c3b47;
+    color: #ffffff;
+    padding: 1rem 0;
+    text-align: center;
+  }
+  
+  .footer a {
+    color: #dd9b56;
+    text-decoration: none;
+  }
+  
+  .footer a:hover {
+    text-decoration: underline;
+  }
+  
